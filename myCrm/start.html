@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>can.Control start page?</title>
+    <script type="text/javascript" src="../jquery/jquery.js"></script>
+    <script type="text/javascript" src="../canjs.com-2.0.5/can.jquery.js"></script>
+    <style type="text/css">
+        .toggle .but{
+            padding: 5px;
+            border: 1px solid #ccc;
+            background-color: #ffe4c4;
+        }
+        .toggle .body{
+            padding: 5px;
+            border: 1px solid #ccc;
+            background-color: #5f9ea0;
+        }
+
+    </style>
+</head>
+<body>
+<div id="container">Container Div from HTML</div>
+<div id="container2">Container Div 2 from HTML</div>
+
+<script type="text/ejs" id="myControlTemplate">
+    <div class="my-class">
+
+            ---this is rendered using the control default template---
+    </div>
+
+</script>
+
+<script type="text/ejs" id="myControlTemplate2">
+    <div class="my-class">
+
+            ***this is rendered using the non-default template2***
+    </div>
+
+</script>
+
+<script type="text/ejs" id="togglerTemplate">
+    <div class="toggle">
+            <div class="but">
+                toggle-But
+            </div>
+            <div class="body">
+                toggle-Body
+            </div>
+    </div>
+
+</script>
+
+<script type="text/ejs" id="togglerTemplate2">
+    <div class="toggle">
+            <div class="but">
+                toggle-But
+                <%=toggleEvent%>
+            </div>
+            <div class="body">
+                toggle-Body
+            </div>
+    </div>
+
+</script>
+
+<h1>Steps</h1>
+<ul>
+    <li id="firstexamp">Bare bone control</li>
+    <li id="secondexamp">Using template</li>
+    <li id="thirdexamp">using default template and overriding while creating instance</li>
+    <li id="fourthexamp">Adding Events</li>
+    <li id="fifthexamp">Templated events</li>
+    <li id="sixthexamp">Template Event Types</li>
+    <li id="seventhexamp">Adding dynamic values to template</li>
+</ul>
+
+<script type="text/javascript">
+    //seventh example
+    var ToggleControl = can.Control({
+        defaults:{
+            template:"togglerTemplate2",
+            butSelector: '.but',
+            bodySelector: '.body',
+            toggleEvent: 'click' //not sure why hover and blur doesn't work, but click and dblclick work
+        }
+    },{
+        init: function(element, options){
+            element.empty();
+            element.html(can.view(this.options.template, options));
+        },
+        '{butSelector} {toggleEvent}' : function (){
+            this.element.find(this.options.bodySelector).toggle();
+        }
+
+    });
+
+    var toggleController = new ToggleControl('#container');
+
+    var toggleController2 = new ToggleControl('#container',{toggleEvent:'dblclick'});
+
+    //sixth example
+//    var ToggleControl = can.Control({
+//        defaults:{
+//            template:"togglerTemplate",
+//            butSelector: '.but',
+//            bodySelector: '.body',
+//            toggleEvent: 'click' //not sure why hover doesn't work, but click and dblclick work
+//        }
+//    },{
+//        init: function(element, options){
+//            element.empty();
+//            element.html(can.view(this.options.template))
+//        },
+//        '{butSelector} {toggleEvent}' : function (){
+//            this.element.find(this.options.bodySelector).toggle()
+//        }
+//
+//    });
+//
+//    var toggleController = new ToggleControl('#container');
+
+    //fifth example
+//    var ToggleControl = can.Control({
+//        defaults:{
+//            template:"togglerTemplate",
+//            butSelector: '.but',
+//            bodySelector: '.body'
+//        }
+//    },{
+//        init: function(element, options){
+//            element.empty();
+//            element.html(can.view(this.options.template))
+//        },
+//        '{butSelector} click' : function (){
+//            this.element.find(this.options.bodySelector).toggle()
+//        }
+//
+//    });
+//
+//    var toggleController = new ToggleControl('#container');
+
+    //fourth example
+//    var ToggleControl = can.Control({
+//        defaults:{
+//            template:"togglerTemplate"
+//        }
+//    },{
+//        init: function(element, options){
+//            element.empty();
+//            element.html(can.view(this.options.template))
+//        },
+//        '.but click' : function (){
+//            this.element.find('.body').toggle()
+//        }
+//
+//    });
+//
+//    var toggleController = new ToggleControl('#container');
+
+    //Third example
+//    var MyControl = can.Control({
+//        defaults:{
+//            template:"myControlTemplate"
+//        }
+//        },{
+//        init: function(element, options){
+//            element.empty();
+//            element.html(can.view(this.options.template))
+//        }
+//
+//    });
+//
+//    var myControl = new MyControl('#container',{template:'myControlTemplate2'});
+
+    //First and second examples
+    //    var MyControl = can.Control({
+    //
+    //        init: function(element, options){
+    //            element.html(can.view('myControlTemplate'))
+    //        }
+    //
+    //    });
+    //
+    //    var myControl = new MyControl('#container');
+
+</script>
+
+</body>
+</html>

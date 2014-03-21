@@ -1,0 +1,75 @@
+<div class="title">
+    <h1>My CRM</h1>
+</div>
+
+<div class="screen">
+    <div class="screen-content">
+        <div class="screen-glass">
+
+            {{#isState "start"}}
+                <p>What would you like to do?</p>
+            <nav>
+                <ul>
+                    <li can-click="addCompany">Add a new Company</li>
+                    <li can-click="addContact">Add a new Contact</li>
+                    <li can-click="searchCompany">Search for a Company - Coming Soon</li>
+                    <li can-click="searchContact">Search for a Contact - Coming Soon</li>
+                </ul>
+            </nav>
+            {{/isState}}
+            {{#isState "addCompany"}}
+                <div>
+                    <div>
+                        <ul>
+                            <li>Company:<input name="companyName"/></li>
+                            <li>Address:</li>
+                            <li>City:</li>
+                            <li>State:</li>
+                            <li>Country:</li>
+                            <li>Main Phone:<input name="phone"/></li>
+                        </ul>
+                    </div>
+                    <div>
+                        <button name="save">Save</button>
+                        <button name="more">More..</button>
+                        <button name="cancel">Cancel</button>
+                    </div>
+                </div>
+            {{/isState}}
+            {{#isState "addContact"}}
+                <div>
+                    <div>
+                        <ul>
+                            <li>First:<input name="firstName"/></li>
+                            <li>Last:<input name="lastName"/></li>
+                            <li>Age:</li>
+                            <li>Company:<input name="companyName"/></li>
+                            <li>Phone:<input name="phone"/></li>
+                            <li>Country Format</li>
+                            <li>Email: <input name="email"/></li>
+                            <li>Contacted Date:</li>
+                            <li>How?:
+
+                            </li>
+                            <li>Next Contact:</li>
+                            <li>How?:
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div>
+                        <button name="save">Save</button>
+                        <button name="more">More..</button>
+                        <button name="cancel">Cancel</button>
+                    </div>
+                </div>
+            {{/isState}}
+            {{#isState "moreCompany"}}
+
+            {{/isState}}
+            {{#isState "moreContact"}}
+
+            {{/isState}}
+        </div>
+    </div>
+</div>
