@@ -1,0 +1,167 @@
+<html>
+<head>
+    <title>Let's Make Some Beer!</title>
+</head>
+<body>
+<table id="beers">
+    <tbody>
+        <tr>
+            <th>Date</th>
+            <th>Beer Name</th>
+            <th>Beer Type</th>
+            <th>Rating</th>
+        </tr>
+        {{ beerResults }}
+    </tbody>
+</table>
+<div id="boil">
+    <button can-click="start">Start Boil</button>
+    <p>Add temp at intervuls in the process</p>
+
+    <boilTemp></boilTemp>
+    <button can-click="addTemp">+ Add Temp</button>
+
+    <boilHop></boilHop>
+    <button can-click="addHop">+ Add Hop</button>
+</div>
+<div id="ingredients">
+    <h3>Ingredients</h3>
+    <p>Malt</p>
+
+    <malt></malt>
+    <button can-click="addMalt">+ Add Another Malt</button>
+    <p>Hops</p>
+
+    <hops></hops>
+    <button can-click="addDryHop">+ Add Another Hop</button>
+</div>
+
+
+<div id="fermentation">
+    <h3>Fermentation</h3>
+    <p>Yeast</p>
+    <label>Type:</label><input name="type">
+    <label>Quantity:</label><input name="quantity">
+    <select>
+        <option>Ounces(oz)</option>
+    </select>
+    <label>Length:</label><input name="length"> days
+</div>
+<div id="yield">
+    <h3>Yield</h3>
+
+    <yield></yield>
+    <button can-click="addYield">+ Add Another</button>
+</div>
+<div style="padding-top:20px; padding-left: 65%;">
+    <content><button can-click="save">Save</button></content>
+</div>
+<p></p>
+<script type="text/mustache" id="beersResult">
+    <tr>
+        <td>{{date}}</td>
+        <td>{{beerName}}</td>
+        <td>{{beerType}}</td>
+        <td>{{rating}}</td>
+    </tr>
+</script>
+<script type="text/mustache" id="ingredientsMalt">
+    <label>Type:</label><input name="type">
+    <label>Levabond Rating:</label><input name="levabond"> L
+    <label>Quantity:</label><input name="quantity">
+    <select>
+        <option value="lb">Pounds(lb)</option>
+        <option value="oz">Ounces(oz)</option>
+    </select>
+    <select>
+        <option value="liquid">Liquid</option>
+        <option value="dry">Dry</option>
+        <option value="grain">Grain</option>
+    </select>
+
+</script>
+<script type="text/mustache" id="ingredientsHops">
+    <label>Type:</label><input name="type">
+    <label>Quantity:</label><input name="quantity">
+    <select>
+        <option value="oz">Ounces(oz)</option>
+        <option value="lb">Pounds(lb)</option>
+    </select>
+</script>
+<script type="text/mustache" id="boilTemp">
+    <temp></temp><time></time>
+
+</script>
+<script type="text/mustache" id="boilHop">
+    <boiltime></boiltime>
+    <addhops><type></type><qty></qty></addhops>
+
+</script>
+<script type="text/mustache" id="yields">
+    <label>Type:</label>
+    <select>
+        <option value="bottle">Bottle</option>
+        <optionvalue="can">Can</option>
+        <optionvalue="keg">Keg</option>
+    </select>
+    <label>Size:</label>
+    <input name="size">
+    <select>
+        <option value="gallon">Gallon</option>
+        <option value="liter">Liter</option>
+    </select>
+    <input name="quantity">
+</script>
+<script type="text/javascript" src="../jquery/jquery-1.9.1.min.js"></script>
+<script type="text/javascript" src="../can/can.custom.js"></script>
+<script>
+    can.fixture({
+        'GET /services/beers': function(){
+             return [
+                 {brewDate:"2014-05-08", beerName: "test1", beerType: "IPA", rating: "0", id: 0},
+                 {brewDate:"2014-05-08", beerName: "test2", beerType: "IPA", rating: "1", id: 1},
+                 {brewDate:"2014-05-08", beerName: "test3", beerType: "IPA", rating: "1", id: 2},
+                 {brewDate:"2014-05-08", beerName: "test4", beerType: "IPA", rating: "1", id: 3},
+                 {brewDate:"2014-05-08", beerName: "test5", beerType: "IPA", rating: "1", id: 4}
+             ]
+         },
+         'POST /services/todos': function(){
+             return {id: Math.random()}
+         },
+         'DELETE /services/todos/{id}': function(){
+             return {}
+         }
+     });
+
+     Beer = can.Model.extend({
+         findAll: "GET /services/beers",
+         create: "POST /services/beers",
+         destroy: "DELETE /services/beers/{id}"
+     },{});
+
+     can.Component.extend({
+         tag: "beers",
+         template: can.view("beersResult"),
+         scope: {
+             "brewDate": beers.brewDate,
+             "beerName": beers.beerName,
+             "beerType": beers.beerType,
+             "rating": beers.rating
+         }
+
+     });
+
+     $('malt').append(can.view("ingredientsMalt",{}));
+
+     $('hops').append(can.view("ingredientsHops",{}));
+
+     $('boilTemp').append(can.view("boilTemp",{}));
+
+     $('boilHop').append(can.view("boilHop",{}));
+
+     $('yield').append(can.view("yields",{}));
+
+
+</script>
+</body>
+</html>
