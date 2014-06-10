@@ -1,0 +1,87 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>My CRM</title>
+        <link rel="stylesheet" type="text/css" href="css/styles.css"/>
+	</head>
+	<body>
+        <div class="screen">
+
+          <header>
+               <h1>My CRM and SRM</h1>
+               <p>A customer relationship management and supplier relationship management system that works the right way to help you.</p>
+
+          </header>
+
+          <section id="start">
+               <h3>What would you like to do?</h3>
+
+              <nav> <a href="#" id='addCompany'>Add a new Company</a>
+       <a href="#" id='addContact'>Add a new Contact</a>
+       <a href="#" id='searchCompany'>Search for a Company - Coming Soon</a>
+       <a href="#" id='searchContact'>Search for a Contact - Coming Soon</a>
+
+              </nav>
+          </section>
+
+          <section id='newCompany'>
+              <div>
+                  <ul>
+                      <li><label for="newCompName">Company:</label>
+                          <input id="newCompName" name="companyName" />
+                      </li>
+                      <li><label>Address:</label>
+                          <input name="companyAddress" />
+                      </li>
+                      <li><label>City:</label>
+                          <input name="companyCity" />
+                      </li>
+                      <li><label>State:</label>
+                          <input name="companyState" />
+                      </li>
+                      <li><label>Country:</label>
+                          <input name="companyCountry" />
+                      </li>
+                      <li><label>Main Phone:</label>
+                          <input name="companyPhone" />
+                      </li>
+                  </ul>
+              </div>
+              <div> <a name="save">Save</a>
+       <a name="more">More..</a>
+       <a name="cancel" class='cancel'>Cancel</a>
+
+              </div>
+          </section>
+
+          <section id='newContact'>
+              <div>
+                  <ul>
+                      <li>First:<input name="firstName"/></li>
+                      <li>Last:<input name="lastName"/></li>
+                      <li>Age:</li>
+                      <li>Company:<input name="companyName"/></li>
+                      <li>Phone:<input name="phone"/></li>
+                      <li>Country Format</li>
+                      <li>Email: <input name="email"/></li>
+                      <li>Contacted Date:</li>
+                      <li>How?:
+
+                      </li>
+                      <li>Next Contact:</li>
+                      <li>How?:
+
+                      </li>
+                  </ul>
+              </div>
+              <div>
+                  <a name="save">Save</a>
+                  <a name="more">More..</a>
+                  <a name="cancel" class='cancel'>Cancel</a>
+              </div>
+          </section>
+      </div>
+
+        <script type='text/javascript' src='../steal/steal.js?myCrm'></script>
+	</body>
+</html>
