@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>resume/experience/create</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+        </style>
+	</head>
+	<body>
+	    <h1>resume/experience/create Demo</h1>
+		<form id='create' action=''></form>
+		<div id='experiences'></div>
+		<script type='text/javascript' 
+                src='../../../steal/steal.js'>
+        </script>
+		<script type='text/javascript'>
+		steal(
+			'resume/experience/create',
+			'resume/models/experience.js',
+          	'resume/models/fixtures',
+          	function(ExperienceCreate, Experience){
+				
+				new ExperienceCreate('#create');
+				Experience.bind('created', function(ev, experience){
+					$('<div>').html("<h3>"+experience.name+"</h3><p>"+experience.description+"</p>")
+					        .appendTo( $('#experiences') )
+				})
+				
+			})
+		</script>
+	</body>
+</html>

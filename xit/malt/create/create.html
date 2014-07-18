@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>xit/malt/create</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+        </style>
+	</head>
+	<body>
+	    <h1>xit/malt/create Demo</h1>
+		<form id='create' action=''></form>
+		<div id='malts'></div>
+		<script type='text/javascript' 
+                src='../../../steal/steal.js'>
+        </script>
+		<script type='text/javascript'>
+		steal(
+			'xit/malt/create',
+			'xit/models/malt.js',
+          	'xit/models/fixtures',
+          	function(MaltCreate, Malt){
+				
+				new MaltCreate('#create');
+				Malt.bind('created', function(ev, malt){
+					$('<div>').html("<h3>"+malt.name+"</h3><p>"+malt.description+"</p>")
+					        .appendTo( $('#malts') )
+				})
+				
+			})
+		</script>
+	</body>
+</html>

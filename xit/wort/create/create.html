@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>xit/wort/create</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+        </style>
+	</head>
+	<body>
+	    <h1>xit/wort/create Demo</h1>
+		<form id='create' action=''></form>
+		<div id='worts'></div>
+		<script type='text/javascript' 
+                src='../../../steal/steal.js'>
+        </script>
+		<script type='text/javascript'>
+		steal(
+			'xit/wort/create',
+			'xit/models/wort.js',
+          	'xit/models/fixtures',
+          	function(WortCreate, Wort){
+				
+				new WortCreate('#create');
+				Wort.bind('created', function(ev, wort){
+					$('<div>').html("<h3>"+wort.name+"</h3><p>"+wort.description+"</p>")
+					        .appendTo( $('#worts') )
+				})
+				
+			})
+		</script>
+	</body>
+</html>

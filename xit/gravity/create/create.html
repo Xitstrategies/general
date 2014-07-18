@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>xit/gravity/create</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+        </style>
+	</head>
+	<body>
+	    <h1>xit/gravity/create Demo</h1>
+		<form id='create' action=''></form>
+		<div id='gravities'></div>
+		<script type='text/javascript' 
+                src='../../../steal/steal.js'>
+        </script>
+		<script type='text/javascript'>
+		steal(
+			'xit/gravity/create',
+			'xit/models/gravity.js',
+          	'xit/models/fixtures',
+          	function(GravityCreate, Gravity){
+				
+				new GravityCreate('#create');
+				Gravity.bind('created', function(ev, gravity){
+					$('<div>').html("<h3>"+gravity.name+"</h3><p>"+gravity.description+"</p>")
+					        .appendTo( $('#gravities') )
+				})
+				
+			})
+		</script>
+	</body>
+</html>

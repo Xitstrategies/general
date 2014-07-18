@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>xit/beer/create</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+        </style>
+	</head>
+	<body>
+	    <h1>xit/beer/create Demo</h1>
+		<form id='create' action=''></form>
+		<div id='beers'></div>
+		<script type='text/javascript' 
+                src='../../../steal/steal.js'>
+        </script>
+		<script type='text/javascript'>
+		steal(
+			'xit/beer/create',
+			'xit/models/beer.js',
+          	'xit/models/fixtures',
+          	function(BeerCreate, Beer){
+				
+				new BeerCreate('#create');
+				Beer.bind('created', function(ev, beer){
+					$('<div>').html("<h3>"+beer.name+"</h3><p>"+beer.description+"</p>")
+					        .appendTo( $('#beers') )
+				})
+				
+			})
+		</script>
+	</body>
+</html>
