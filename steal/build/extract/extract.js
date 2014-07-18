@@ -97,9 +97,9 @@ steal('steal', 'steal/parse', 'steal/build', 'steal/build/pluginify', function(s
 	 * Creates a set of AMD modules recursively. The `map` options contain a mapping from Steal
 	 * rootSrc filenames to AMD module names. For examples:
 	 *
-	 *      { "jquery/dom/compare/compare.js" : "jquerypp/compare" }
+	 *      { "jquery/dom/compare/compare.js" : "jquery/compare" }
 	 *
-	 * Will map "jquery/dom/compare/compare.js" to "jquerypp/compare.js" in the output folder
+	 * Will map "jquery/dom/compare/compare.js" to "jquery/compare.js" in the output folder
 	 * and all dependencies as well (e.g. dependent files would `define(['jquery/compare'], ...)`.
 	 * By default it will use the Steal rootSrc name.
 	 * The `names` mapping can be used to map AMD module names to variable names passed to the

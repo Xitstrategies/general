@@ -35,7 +35,7 @@ var empty = {
             {name: "", type: "pellet", quantity: 0, quantityType: "", dateIn: "2014-01-01"}
         ],
         gravity: [/* Needs a good validation that only one original and one final can be true and if original, can not be final, and visa-versa */
-            {date: "2014-01-01", original: true, final: false, reading: 1.000, scale: ""}
+            {time: "2014-01-01 00:00:00", original: true, final: false, reading: 1.000, scale: ""}
         ],
         yield:[
             {date: "2014-01-01", quantity: 0, type: "bottle", size: 12, sizeType: "oz", bottlingSugar: true,
@@ -62,8 +62,8 @@ beers = [{
     irishMoss: true,
     boilLength: 70, boilLengthType: "min",
     gravity: [/* Needs a good validation that only one original and one final can be true and if original, can not be final, and visa-versa */
-        {date: "2014-03-09", original: true, final: false, reading: 1.070, scale: ""},
-        {date: "2014-03-30", original: false, final: true, reading: 1.009, scale: ""}
+        {time: "2014-03-09 00:00:00", original: true, final: false, reading: 1.070, scale: ""},
+        {time: "2014-03-30 00:00:00", original: false, final: true, reading: 1.009, scale: ""}
     ],
     yield:[
         {date: "2014-03-09", quantity: 42, type: "bottle", size: 12, sizeType: "oz", bottlingSugar: true,

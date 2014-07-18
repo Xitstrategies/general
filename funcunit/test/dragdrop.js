@@ -4,7 +4,7 @@
 
 /**
  * @class jQuery.Vector
- * @parent jquerypp
+ * @parent jquery
  *
  * `jQuery.Vector` represents a multi dimensional vector with shorthand methods for
  * working with two dimensions.

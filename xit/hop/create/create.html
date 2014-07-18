@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html lang="en">
+	<head>
+		<title>xit/hop</title>
+        <style type='text/css'>
+            body {font-family: verdana}
+        </style>
+	</head>
+	<body>
+	    <h1>xit/hop Demo</h1>
+		<form id='create' action=''></form>
+		<div id='hops'></div>
+		<script type='text/javascript' 
+                src='../../../steal/steal.js'>
+        </script>
+		<script type='text/javascript'>
+		steal(
+			'xit/hop/create',
+			'xit/models/hop.js',
+          	'xit/models/fixtures',
+          	function(HopCreate, Hop){
+				
+				new HopCreate('#create');
+				Hop.bind('created', function(ev, hop){
+					$('<div>').html("<h3>"+hop.name+"</h3><p>"+hop.description+"</p>")
+					        .appendTo( $('#hops') )
+				})
+				
+			})
+		</script>
+	</body>
+</html>
