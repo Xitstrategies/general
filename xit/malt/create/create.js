@@ -15,10 +15,15 @@ steal('can', 'xit/models/malt.js', './init.mustache', 'jquery/dom/form_params', 
 		 *  Render the initial template
 		 */
 		init: function () {
-//			this.element.html(initView({}));
-        },
-        "div#malts h3 click": function(el) {
-            this.createView(el);
+            var self = this,
+                opts = this.options;
+            opts.malt = new can.Map({
+                visible: false,
+                toggle: function() {
+                    this.attr("visible", !this.attr("visible"));
+                }
+            });
+            this.element.html(initView({ malt: opts.malt }));
         },
         /**
          *  Submit handler. Create a new water from the form.
@@ -30,9 +35,6 @@ steal('can', 'xit/models/malt.js', './init.mustache', 'jquery/dom/form_params', 
                 el.find('[type=submit]').val('Create');
                 el[0].reset();
             });
-        },
-        createView: function(el){
-            el.append(initView({}));
         }
 	});
 });

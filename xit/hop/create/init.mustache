@@ -1,17 +1,21 @@
-<h3>Hops</h3>
-<div class="container">
-    <ul>
-        <li>
-            <label>Type:</label>
-            <label>Quantity:</label>
-        </li>
-        <li>
-            <input name="type">
-            <input name="quantity">
-            <select>
-                <option value="oz">Ounces(oz)</option>
-                <option value="lb">Pounds(lb)</option>
-            </select>
-        </li>
-    </ul>
+<h3 can-click="hop.toggle"><img src="/general/css/icons/hop.png" alt="hop"></h3>
+{{#if hop.visible}}
+<div class="row">
+    <div class="container inner">
+        <ul>
+            <li>
+                <label>Type:</label>
+                <label>Quantity:</label>
+            </li>
+            <li>
+                <input name="type">
+                <input name="quantity">
+                <select>
+                    <option value="oz">Ounces(oz)</option>
+                    <option value="lb">Pounds(lb)</option>
+                </select>
+            </li>
+        </ul>
+    </div>
 </div>
+{{/if}}

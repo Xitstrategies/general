@@ -1,5 +1,5 @@
-steal('can', 'xit/models/wort.js', './init.ejs', 'jquery/dom/form_params',
-	function (can, Wort, initEJS) {
+steal('can', 'xit/models/wort.js', './init.mustache', 'jquery/dom/form_params',
+	function (can, Wort, initView) {
 
 	/**
 	 * @constructor xit/wort/create
@@ -15,17 +15,25 @@ steal('can', 'xit/models/wort.js', './init.ejs', 'jquery/dom/form_params',
 		 *  Render the initial template
 		 */
 		init: function () {
-			this.element.html(initEJS());
+            var self = this,
+                opts = this.options;
+            opts.wort = new can.Map({
+                visible: false,
+                toggle: function() {
+                    this.attr("visible", !this.attr("visible"));
+                }
+            });
+            this.element.html(initView({ wort: opts.wort }));
 		},
 		/**
 		 *  Submit handler. Create a new wort from the form.
 		 */
 		submit: function (el, ev) {
 			ev.preventDefault();
-			el.find('[type=submit]').val('Creating...')
+			el.find('[type=submit]').val('Creating...');
 			new Wort(el.formParams()).save(function() {
 				el.find('[type=submit]').val('Create');
-				el[0].reset()
+				el[0].reset();
 			});
 		}
 	});

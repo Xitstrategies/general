@@ -15,7 +15,15 @@ steal('can', 'xit/models/hop.js', './init.mustache', 'jquery/dom/form_params', '
 		 *  Render the initial template
 		 */
 		init: function () {
-			this.element.html(initView());
+            var self = this,
+                opts = this.options;
+            opts.hop = new can.Map({
+                visible: false,
+                toggle: function() {
+                    this.attr("visible", !this.attr("visible"));
+                }
+            });
+            this.element.html(initView({ hop: opts.hop }));
 		},
 		/**
 		 *  Submit handler. Create a new hop from the form.

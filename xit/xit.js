@@ -29,8 +29,8 @@ function(HopCreate, BeerCreate, MaltCreate, WortCreate, GravityCreate, YieldCrea
     new Water("#waters");
     new HopCreate('#hops');
     new WortCreate('#worts');
-    new GravityCreate('#gravities');
-    new YieldCreate('#yiels');
-    new BeerCreate('#beers');
+//    new GravityCreate('#gravities');
+//    new YieldCreate('#yiels');
+//    new BeerCreate('#beers');
 
 });
