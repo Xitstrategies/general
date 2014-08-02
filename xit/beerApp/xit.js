@@ -1,11 +1,11 @@
 steal(
-	'xit/hop',
-	'xit/beer',
-	'xit/malt',
-	'xit/wort',
-	'xit/gravity',
-	'xit/yield',
-    'xit/water',
+	'xit/beerApp/hop',
+	'xit/beerApp/beer',
+	'xit/beerApp/malt',
+	'xit/beerApp/wort',
+	'xit/beerApp/gravity',
+	'xit/beerApp/yield',
+    'xit/beerApp/water',
     'xitlib/timer',
 
 	'./models/fixtures/fixtures.js',
