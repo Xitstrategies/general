@@ -1,4 +1,4 @@
-steal('can', 'xit/models/malt.js', './init.mustache', 'jquery/dom/form_params', './create.less',
+steal('can', 'xit/models/malt.js', './init.mustache', 'jquery/dom/form_params', './malt.less',
 	function (can, Malt, initView) {
 
 	/**

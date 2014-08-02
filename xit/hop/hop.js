@@ -1,4 +1,4 @@
-steal('can', 'xit/models/hop.js', './init.mustache', 'jquery/dom/form_params', './create.less',
+steal('can', 'xit/models/hop.js', './init.mustache', 'jquery/dom/form_params', './hop.less',
 	function (can, Hop, initView) {
 
 	/**

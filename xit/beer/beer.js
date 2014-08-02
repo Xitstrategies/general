@@ -1,5 +1,5 @@
 steal('can', 'xit/models/beer.js', './init.mustache', 'jquery/dom/form_params',
-	function (can, Beer, init) {
+	function (can, Beer, initView) {
 
 	/**
 	 * @constructor xit/beer/create
@@ -15,7 +15,7 @@ steal('can', 'xit/models/beer.js', './init.mustache', 'jquery/dom/form_params',
 		 *  Render the initial template
 		 */
 		init: function () {
-			this.element.html(init());
+			this.element.html(initView());
 		},
 		/**
 		 *  Submit handler. Create a new beer from the form.

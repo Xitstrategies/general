@@ -1,5 +1,5 @@
-steal('can', 'xit/models/yield.js', './init.ejs', 'jquery/dom/form_params',
-	function (can, Yield, initEJS) {
+steal('can', 'xit/models/yield.js', './init.mustache', 'jquery/dom/form_params',
+	function (can, Yield, initView) {
 
 	/**
 	 * @constructor xit/yield/create
@@ -15,7 +15,7 @@ steal('can', 'xit/models/yield.js', './init.ejs', 'jquery/dom/form_params',
 		 *  Render the initial template
 		 */
 		init: function () {
-			this.element.html(initEJS());
+			this.element.html(initView());
 		},
 		/**
 		 *  Submit handler. Create a new yield from the form.

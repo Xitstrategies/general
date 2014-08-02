@@ -1,5 +1,5 @@
-steal('can', 'xit/models/gravity.js', './init.ejs', 'jquery/dom/form_params',
-	function (can, Gravity, initEJS) {
+steal('can', 'xit/models/gravity.js', './init.mustache', 'jquery/dom/form_params',
+	function (can, Gravity, initView) {
 
 	/**
 	 * @constructor xit/gravity/create
@@ -15,7 +15,7 @@ steal('can', 'xit/models/gravity.js', './init.ejs', 'jquery/dom/form_params',
 		 *  Render the initial template
 		 */
 		init: function () {
-			this.element.html(initEJS());
+			this.element.html(initView());
 		},
 		/**
 		 *  Submit handler. Create a new gravity from the form.
