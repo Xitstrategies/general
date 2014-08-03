@@ -1,0 +1,18 @@
+{
+  "name": "canjs-localstorage",
+  "version": "0.2.0",
+  "main": "./can.localstorage.js",
+  "dependencies": {
+    "canjs": "~2.0.0"
+  },
+  "homepage": "https://github.com/passy/canjs-localstorage",
+  "_release": "0.2.0",
+  "_resolution": {
+    "type": "version",
+    "tag": "v0.2.0",
+    "commit": "222ce3b4493f76fae16a3dfff46184b30f4d25d4"
+  },
+  "_source": "git://github.com/passy/canjs-localstorage.git",
+  "_target": "~0.2.0",
+  "_originalSource": "canjs-localstorage"
+}
